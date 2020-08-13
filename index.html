@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <main>
+        <div class="yellow-head"></div>
+        <div class="mainzone">
+            <h1>To-Do List</h1>
+            <div>
+                <button class="sort">
+                    <div class="sort__arrow">
+                        <img src="/img/Rectangle vert.svg">
+                        <img src="/img/Polygon 1.svg" class="sort__triangle">
+                    </div>
+                    <div class="sort__lines">
+                        <img src="/img/Rectangle upper.svg">
+                        <img src="/img/Rectangle mid.svg">
+                        <img src="/img/Rectangle lower.svg">
+                    </div>
+                </button>
+            </div>
+            <div class="option-list">
+                <div class="option" draggable="true">
+                    <div class="option__dots">
+                        <img src="/img/Ellipse 3.svg">
+                        <img src="/img/Ellipse 3.svg">
+                        <img src="/img/Ellipse 3.svg">
+                        <img src="/img/Ellipse 3.svg"> 
+                    </div>
+                    <input type="text" class="option__list-item">
+                    <button class="option__delete">
+                        <img src="/img/diag.svg" class="option__diag1">
+                        <img src="/img/diag.svg" class="option__diag2">
+                    </button>
+                </div>
+            </div>
+            
+            <button type="button" class="add"><span class="plus">+</span>Добавить</button>
+        </div>
+    </main>
+    <script src="/script.js"></script>
+</body>
+</html>

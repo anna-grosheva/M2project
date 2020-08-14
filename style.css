@@ -113,9 +113,9 @@ h1 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: 1px solid white;
+    border: 1px solid transparent;
     box-sizing: border-box;
-    border-radius: 10px;
+    border-radius: 2px;
     height: 40px;
     padding: 13px;
 }
@@ -176,4 +176,8 @@ h1 {
 
 .option__diag2 {
     transform: rotate(-90deg);
+}
+
+.selected {
+    transform: none;
 }

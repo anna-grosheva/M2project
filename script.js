@@ -20,6 +20,7 @@ addButton.addEventListener('mouseout', () => {
 
 // добавление и удаление задач
 addButton.addEventListener('click', () => {
+    
     let optionElement = document.querySelector('.option').cloneNode(true);
     optionList.append(optionElement);
 
@@ -31,35 +32,52 @@ addButton.addEventListener('click', () => {
             optionElements[i].remove();
         });
     }
+});
 
+// сортировка
+sortButton.addEventListener('click', () => {
     let arrTasks = [];
     let inputs = document.querySelectorAll('.option__list-item');
-    inputs.forEach((inputItem) => {
-        inputItem.addEventListener('change', (event) => {
-                arrTasks.push(event.target.value);   
+    for (let i = 0; i < inputs.length; i++) {
+        arrTasks.push(inputs[i].value);
+    }
+    if (!arrow.style.flexDirection || arrow.style.flexDirection === 'column') {
+        arrow.style.flexDirection = 'column-reverse';
+        triangle.style.transform = 'rotate(-180deg)';
+        triangle.style.marginBottom = '-2px';
+        triangle.style.marginLeft = '1px';
+    
+        arrTasks.sort((a, b) => {
+            if (a < b) {
+                return -1;
+            }
+            if (a > b) {
+                return 1;
+            }
+            return 0;
         });
-        
-    });
-
-    // сортировка странно работает, опять хрень со стрелкой и добавлением доп.элементов
-
-    sortButton.addEventListener('click', () => {
-        if (arrow.style.flexDirection === 'column') {
-            arrow.style.flexDirection = 'column-reverse';
-            triangle.style.transform = 'rotate(-180deg)';
-            triangle.style.marginBottom = '-2px';
-            triangle.style.marginLeft = '1px';
-            arrTasks.sort();
-            console.log(arrTasks);
-        } else {
-            arrow.style.flexDirection = 'column';
-            triangle.style.transform = 'none';
-            triangle.style.marginBottom = '0';
-            triangle.style.marginLeft = '0';
-            arrTasks.reverse();
-            console.log(arrTasks);
+        for (let j = 0; j < arrTasks.length; j++) {
+            inputs[j].value = arrTasks[j];
         }
-    });
+    } else {
+        arrow.style.flexDirection = 'column';
+        triangle.style.transform = 'none';
+        triangle.style.marginBottom = '0';
+        triangle.style.marginLeft = '0';
+        
+        arrTasks.sort((a, b) => {
+            if (a < b) {
+                return 1;
+            }
+            if (a > b) {
+                return -1;
+            }
+            return 0;
+        });
+        for (let j = 0; j < arrTasks.length; j++) {
+            inputs[j].value = arrTasks[j];
+        }
+    }
 });
 
 

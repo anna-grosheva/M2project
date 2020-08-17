@@ -34,6 +34,7 @@ addButton.addEventListener('click', () => {
     }
 });
 
+
 // сортировка
 sortButton.addEventListener('click', () => {
     let arrTasks = [];
@@ -116,13 +117,4 @@ optionList.addEventListener('dragover', (event) => {
     }
     optionList.insertBefore(activeElement, nextElement);
 });
-
-
-
-
-
-        
-
-
-
 

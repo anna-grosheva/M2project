@@ -4,6 +4,9 @@ let optionList = document.querySelector('.option-list');
 const sortButton = document.querySelector('.sort');
 const arrow = document.querySelector('.sort__arrow');
 const triangle = document.querySelector('.sort__triangle');
+let option = document.querySelector('.option');
+let deleteButton = document.querySelector('.option__delete');
+let inputData = document.querySelector('.option__list-item');
 
 
 // наведение мыши на фиолетовую кнопку
@@ -18,25 +21,34 @@ addButton.addEventListener('mouseout', () => {
 });
 
 
-// добавление и удаление задач
+// функция для удаления задач
+function removeElements(par) {
+    let optionElements = document.querySelectorAll('.option');
+    if (optionElements.length > 1) {
+        par.remove();
+    }
+}
+
+
+// удаление для 1ой задачи
+deleteButton.addEventListener('click', () => {
+    removeElements(option);
+})
+
+
+// добавление и удаление новых задач
 addButton.addEventListener('click', () => {
 
-    let optionElement = document.querySelector('.option');
     let newElement = document.createElement('div');
-    newElement.innerHTML = optionElement.innerHTML;
+    newElement.innerHTML = option.innerHTML;
     newElement.classList.add('option');
     newElement.draggable = 'true';
     optionList.append(newElement);
 
-    let deleteButtons = document.querySelectorAll('.option__delete');
-    let optionElements = document.querySelectorAll('.option');
-    
-    for (let i = 0; i < deleteButtons.length; i++) {
-        deleteButtons[i].addEventListener('click', () => {
-                optionElements[i].remove();
-        }); 
-    }
-    
+    let deleteButton = newElement.querySelector('.option__delete');
+    deleteButton.addEventListener('click', () => {
+        removeElements(newElement);
+    });
 });
 
 

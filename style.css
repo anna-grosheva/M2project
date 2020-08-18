@@ -12,7 +12,7 @@ main {
 .yellow-head {
     height: 28px;
     background-color: #FFDC40;
-    border-radius: 10px 10px 0 0;
+    border-radius: 9px 9px 0 0;
 }
 
 .mainzone {
@@ -42,6 +42,7 @@ h1 {
 
 .sort:hover {
     filter: invert(1);
+    cursor: pointer;
 }
 
 .sort__arrow {
@@ -130,7 +131,7 @@ h1 {
 }
 
 .option__dots:hover {
-    cursor: pointer;
+    cursor: move;
 }
 
 .option__dots img {

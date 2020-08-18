@@ -20,18 +20,23 @@ addButton.addEventListener('mouseout', () => {
 
 // добавление и удаление задач
 addButton.addEventListener('click', () => {
-    
-    let optionElement = document.querySelector('.option').cloneNode(true);
-    optionList.append(optionElement);
+
+    let optionElement = document.querySelector('.option');
+    let newElement = document.createElement('div');
+    newElement.innerHTML = optionElement.innerHTML;
+    newElement.classList.add('option');
+    newElement.draggable = 'true';
+    optionList.append(newElement);
 
     let deleteButtons = document.querySelectorAll('.option__delete');
     let optionElements = document.querySelectorAll('.option');
-     
+    
     for (let i = 0; i < deleteButtons.length; i++) {
         deleteButtons[i].addEventListener('click', () => {
-            optionElements[i].remove();
-        });
+                optionElements[i].remove();
+        }); 
     }
+    
 });
 
 
